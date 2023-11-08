@@ -7,11 +7,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Scaffold(
-          backgroundColor: const Color(0xff09090C),
-          body: Stack(
+    return Scaffold(
+      backgroundColor: const Color(0xff09090C),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: SvgPicture.asset(
+                "assets/svg/logo.svg",
+              ),
+            ),
+          ),
+          Stack(
             children: [
               Row(
                 children: [
@@ -20,21 +29,18 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const SizedBox(
-                          height: 50,
-                        ),
                         SvgPicture.asset("assets/svg/search.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         SvgPicture.asset("assets/svg/home.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         SvgPicture.asset("assets/svg/movies.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         SvgPicture.asset("assets/svg/tv.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         SvgPicture.asset("assets/svg/favourite.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         SvgPicture.asset("assets/svg/profile.svg",
-                            color: const Color(0xffBABABA)),
+                            color: const Color(0xffBABABA), width: 40),
                         const SizedBox(
                           height: 50,
                         ),
@@ -42,13 +48,15 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SizedBox(width: 30),
+                      SizedBox(width: 50),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 100),
+                            padding: const EdgeInsets.only(top: 80),
                             child: Image.asset(
                               AppImages.johnWickTextImage,
                               width: 220,
@@ -94,17 +102,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: SvgPicture.asset(
-              "assets/svg/logo.svg",
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
